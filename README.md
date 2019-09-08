@@ -1,5 +1,10 @@
 # Weatherstation V2
-Open-source Weatherstation to build by yourself. Expandable with remote sensors.
+**Open-source Weatherstation to build by yourself. Expandable with remote sensors.**
+
+[![GitHub license](https://img.shields.io/github/license/Joennuh/Weatherstation-V2)](https://github.com/Joennuh/Weatherstation-V2/blob/master/LICENSE)
+![GitHub repo size](https://img.shields.io/github/repo-size/Joennuh/Weatherstation-V2)
+![GitHub last commit (branch)](https://img.shields.io/github/last-commit/Joennuh/Weatherstation-V2/master)
+[![Gitter](https://badges.gitter.im/Weatherstation-V2/community.svg)](https://gitter.im/Weatherstation-V2/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 ## Work in progress
 This readme.md need to be completed but here is a small start.
