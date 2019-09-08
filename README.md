@@ -29,6 +29,24 @@ Hyperlinks after the products refer to the place where I bought those products. 
 * DS18B20 temperature sensor (100 cm) <https://www.aliexpress.com/item/32265871189.html>
 * 2 tactile push buttons
 
+## Sources
+This software is based on example sketches from several sources. Mostly the examples come from library's being used in this sketch.
+
+Sources:
+ * **TTGO T-Display**: <https://github.com/Xinyuan-LilyGO/TTGO-T-Display>
+ * **ArduinoMenu**: <https://github.com/neu-rah/ArduinoMenu>
+ * **TFT_eSPI**: <https://github.com/Bodmer/TFT_eSPI>
+ * **Button2**: <https://github.com/LennartHennigs/Button2>
+And probably I've forgotten to mention sources. In that case: I'm sorry for that.
+
+## Dependencies
+The following libraries are being used in the sketches of this project:
+* **ArduinoMenu**: <https://github.com/neu-rah/ArduinoMenu>
+* **TFT_eSPI**: <https://github.com/Bodmer/TFT_eSPI>
+* **Button2**: <https://github.com/LennartHennigs/Button2>
+* **OneWire**: <https://www.pjrc.com/teensy/td_libs_OneWire.html>
+* **Arduino Library for Maxim Temperature Integrated Circuits**: <https://github.com/milesburton/Arduino-Temperature-Control-Library>
+
 ## License
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
