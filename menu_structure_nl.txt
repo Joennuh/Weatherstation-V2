@@ -1,0 +1,58 @@
+Hoofdmenu
+|-	Instellingen
+|	|- 	WiFi instellingen
+|	|	|-	SSID: network name
+|	|	|-	Sleutel: network key
+|	|	|-	Reset: nee / ja (default: nee)
+|	|	|-	Bevestig reset
+|	|
+|	|-	Webserver
+|	|	|-	Poort
+|	|	|-	Wachtw. ingesch.: ja / nee (default: ja)
+|	|	|-	Gebr.naam: (default: admin)
+|	|	|-	Wachtwoord: (default: admin)
+|	|
+|	|-	Koppel apparaten
+|	|	|-	Koppelserver
+|	|	|	|-	Hostnaam
+|	|	|	|-	Poort
+|	|	|	|-	URI
+|	|	|
+|	|	|-	Dit apparaat
+|	|	|	|-	Apparaat naam
+|	|	|	|-	Apparaatcode (disabled, auto generated)
+|	|	|	|-	Ingeschakeld: nee / ja (default: nee)
+|	|	|
+|	|	|-	Apparaat 1
+|	|	|	|- Apparaat naam
+|	|	|	|- Apparaatcode
+|	|	|	|- App.wachtwoord
+|	|	|	|- Temp. buiten: uit / aan (default: uit)
+|	|	|	|- Temp. binnen: uit / aan (default: uit)
+|	|	|	|- Reset: nee / ja (default: nee)
+|	|	|	|- Bevestig reset
+|	|	|
+|	|	|-	Apparaat 2
+|	|	|	|- Apparaat naam
+|	|	|	|- Apparaatcode
+|	|	|	|- App.wachtwoord
+|	|	|	|- Temp. buiten: uit / aan (default: uit)
+|	|	|	|- Temp. binnen: uit / aan (default: uit)
+|	|	|	|- Reset: nee / ja (default: nee)
+|	|	|	|- Bevestig reset
+|	|	|
+|	|	|-	Apparaat 3
+|	|	 	|- Apparaat naam
+|	|	 	|- Apparaatcode
+|	|	 	|- App.wachtwoord
+|	|	 	|- Temp. buiten: uit / aan (default: uit)
+|	|	 	|- Temp. binnen: uit / aan (default: uit)
+|	|	 	|- Reset: nee / ja (default: nee)
+|	|	 	|- Bevestig reset
+|	|
+|	|- 	Scherm helderh.: 80
+|	|- 	Zaklamp helderh.: 255
+|	|-	Menu timeout sec: 60
+|	|-	Apparaat info (commercial device description, manufacturer, version, IP-adres, etc.)
+|
+|-	Zaklamp: uit / aan (default: uit)

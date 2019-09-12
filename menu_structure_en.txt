@@ -1,0 +1,58 @@
+Main menu
+|-	Settings
+|	|- 	WiFi settings
+|	|	|-	SSID: network name
+|	|	|-	Key: network key
+|	|	|-	Reset: no / yes (default: no)
+|	|	|-	Confirm reset
+|	|
+|	|-	Webserver
+|	|	|-	Port
+|	|	|-	Pwd enabled: yes /no (default: yes)
+|	|	|-	Username (default: admin)
+|	|	|-	Password: (default: admin)
+|	|
+|	|-	Pair devices
+|	|	|-	Pairserver
+|	|	|	|-	Hostname
+|	|	|	|-	Port
+|	|	|	|-	URI
+|	|	|
+|	|	|-	This device
+|	|	|	|-	Device name
+|	|	|	|-	Device code (field disabled, auto generated)
+|	|	|	|-	Enabled: no / yes (default: no)
+|	|	|
+|	|	|-	Device 1
+|	|	|	|- Device name
+|	|	|	|- Device code
+|	|	|	|- Device pwd
+|	|	|	|- Temp. outside: off / on (default: off)
+|	|	|	|- Temp. inside: off /on (default: off)
+|	|	|	|- Reset: no / yes (default: no)
+|	|	|	|- Confirm reset
+|	|	|
+|	|	|-	Device 2
+|	|	|	|- Device name
+|	|	|	|- Device code
+|	|	|	|- Device pwd
+|	|	|	|- Temp. outside: off / on (default: off)
+|	|	|	|- Temp. inside: off /on (default: off)
+|	|	|	|- Reset: no / yes (default: no)
+|	|	|	|- Confirm reset
+|	|	|
+|	|	|-	Device 3
+|	|	 	|- Device name
+|	|	 	|- Device code
+|	|	 	|- Device pwd
+|	|	 	|- Temp. outside: off / on (default: off)
+|	|	 	|- Temp. inside: off /on (default: off)
+|	|	 	|- Reset: no / yes (default: no)
+|	|	 	|- Confirm reset
+|	|
+|	|- 	Displ. brightn.: 80
+|	|- 	Torch brightn.: 255
+|	|-	Menu timeout sec: 60
+|	|-	Device info (commercial device description, manufacturer, version, IP-adres, etc.)
+|
+|-	Torch: off / on (default: off)
