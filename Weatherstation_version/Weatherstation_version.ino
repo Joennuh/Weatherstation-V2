@@ -42,10 +42,12 @@
  * -  Do not forget to include the correct User Setup file in the TFT_eSPI configuration before compiling
  *    and uploading the sketch!
  ***********************************************************************************************************/
+
+#include "lang_nl.h" // Which language file should be included?
  
 #define PROG_NAME "Weatherstation V2"
 #define PROG_HARDWARE "Weatherstation"
-#define PROG_VERSION "0.1.0000"
+#define PROG_VERSION "0.1.0002"
 #define PROG_MANUFACTURER "The Big Site"
 
 #include <Arduino.h>
@@ -193,27 +195,27 @@ result RGBPresetMenuReset(eventMask e,navNode& nav, prompt &item) {
   return proceed;
 }
 
-CHOOSE(displayColor,RGBPresetMenu,"Preset     : ",doNothing,noEvent,wrapStyle
-  ,VALUE("none",0,RGBPresetShow,focusEvent)
-  ,VALUE("red",1,RGBPresetShow,focusEvent)
-  ,VALUE("yellow",2,RGBPresetShow,focusEvent)
-  ,VALUE("green",3,RGBPresetShow,focusEvent)
-  ,VALUE("marine",4,RGBPresetShow,focusEvent)
-  ,VALUE("blue",5,RGBPresetShow,focusEvent)
-  ,VALUE("purple",6,RGBPresetShow,focusEvent)
-  ,VALUE("white normal",7,RGBPresetShow,focusEvent)
-  ,VALUE("white bright",8,RGBPresetShow,focusEvent)
+CHOOSE(displayColor,RGBPresetMenu,LANG_RGB_PRESET_MENU_TITLE,doNothing,noEvent,wrapStyle
+  ,VALUE(LANG_NONE,0,RGBPresetShow,focusEvent)
+  ,VALUE(LANG_RED,1,RGBPresetShow,focusEvent)
+  ,VALUE(LANG_YELLOW,2,RGBPresetShow,focusEvent)
+  ,VALUE(LANG_GREEN,3,RGBPresetShow,focusEvent)
+  ,VALUE(LANG_MARINE,4,RGBPresetShow,focusEvent)
+  ,VALUE(LANG_BLUE,5,RGBPresetShow,focusEvent)
+  ,VALUE(LANG_PURPLE,6,RGBPresetShow,focusEvent)
+  ,VALUE(LANG_WHITE_NORMAL,7,RGBPresetShow,focusEvent)
+  ,VALUE(LANG_WHITE_BRIGHT,8,RGBPresetShow,focusEvent)
 );
 
-MENU(RGBledMenu,"RGB led",doNothing,anyEvent,wrapStyle
+MENU(RGBledMenu,LANG_RGB_MENU_TITLE,doNothing,anyEvent,wrapStyle
    //,FIELD(RGBledRed,"Red        : ","",0,255,10,5,doNothing,noEvent,wrapStyle)
-   ,BARFIELD(RGBledRed,"Red        : ","",0,255,10,1,RGBPresetMenuReset,enterEvent,wrapStyle)//numeric field with a bar
+   ,BARFIELD(RGBledRed,LANG_RGB_RED,"",0,255,10,1,RGBPresetMenuReset,enterEvent,wrapStyle)//numeric field with a bar
    //,FIELD(RGBledGreen,"Green      : ","",0,255,10,5,doNothing,noEvent,wrapStyle)
-  ,BARFIELD(RGBledGreen,"Green      : ","",0,255,10,1,RGBPresetMenuReset,enterEvent,wrapStyle)//numeric field with a bar
+  ,BARFIELD(RGBledGreen,LANG_RGB_GREEN,"",0,255,10,1,RGBPresetMenuReset,enterEvent,wrapStyle)//numeric field with a bar
   //,FIELD(RGBledBlue,"Blue       : ","",0,255,10,5,doNothing,noEvent,wrapStyle)
-  ,BARFIELD(RGBledBlue,"Blue       : ","",0,255,10,1,RGBPresetMenuReset,enterEvent,wrapStyle)//numeric field with a bar
+  ,BARFIELD(RGBledBlue,LANG_RGB_BLUE,"",0,255,10,1,RGBPresetMenuReset,enterEvent,wrapStyle)//numeric field with a bar
   ,SUBMENU(RGBPresetMenu)
-  ,EXIT("<Back")
+  ,EXIT(LANG_BACK)
 );
 
 int test=55;
@@ -262,21 +264,21 @@ public:
 MENU(subMenu,"Sub-Menu",doNothing,noEvent,noStyle
   ,altOP(altPrompt,"",doNothing,noEvent)
   ,OP("Op",doNothing,noEvent)
-  ,EXIT("<Back")
+  ,EXIT(LANG_BACK)
 );
 
 char* constMEM hexDigit MEMMODE="0123456789ABCDEF";
 char* constMEM hexNr[] MEMMODE={"0","x",hexDigit,hexDigit};
 char buf1[]="0x11";
 
-MENU(mainMenu,"Main menu",doNothing,noEvent,wrapStyle
+MENU(mainMenu,LANG_MAIN_MENU_TITLE,doNothing,noEvent,wrapStyle
   ,OP("Op1",doNothing,noEvent)
   ,OP("Op2",doNothing,noEvent)
   // ,FIELD(test,"Test","%",0,100,10,1,doNothing,noEvent,wrapStyle)
   ,SUBMENU(subMenu)
   ,SUBMENU(RGBledMenu)
-  ,BARFIELD(torch,"Torch: ","",0,255,10,1,RGBPresetMenuReset,enterEvent,wrapStyle)//numeric field with a bar
-  ,BARFIELD(TFTled,"Backlight: ","",0,255,10,1,RGBPresetMenuReset,enterEvent,wrapStyle)//numeric field with a bar
+  ,BARFIELD(torch,LANG_TORCH,"",0,255,10,1,RGBPresetMenuReset,enterEvent,wrapStyle)//numeric field with a bar
+  ,BARFIELD(TFTled,LANG_BACKLIGHT,"",0,255,10,1,RGBPresetMenuReset,enterEvent,wrapStyle)//numeric field with a bar
   ,SUBMENU(setLed)
   ,OP("Demo led On",myLedOn,enterEvent)
   ,OP("Demo led Off",myLedOff,enterEvent)
@@ -284,7 +286,7 @@ MENU(mainMenu,"Main menu",doNothing,noEvent,wrapStyle
   ,SUBMENU(chooseMenu)
   //,OP("Alert test",doAlert,enterEvent)
   ,EDIT("Hex",buf1,hexNr,doNothing,noEvent,noStyle)
-  ,EXIT("<Back")
+  ,EXIT(LANG_BACK)
 );
 
 // define menu colors --------------------------------------------------------
