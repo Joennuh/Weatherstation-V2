@@ -128,6 +128,54 @@ DallasTemperature sensors(&oneWire);
 
 result doAlert(eventMask e, prompt &item);
 
+MENU(WiFiSettingsMenu,LANG_MENU_SETTINGS_WIFI_TITLE,doNothing,anyEvent,wrapStyle
+  ,OP(LANG_MENU_SETIINGS_WIFI_SSID,doNothing,noEvent)
+  ,OP(LANG_MENU_SETTINGS_WIFI_KEY,doNothing,noEvent)
+  ,OP(LANG_RESET,doNothing,noEvent)
+  ,OP(LANG_RESET_CONFIRM,doNothing,noEvent)
+  ,EXIT(LANG_BACK)
+);
+
+MENU(WebserverSettingsMenu,LANG_MENU_SETTINGS_WEBSERVER_TITLE,doNothing,anyEvent,wrapStyle
+  ,OP(LANG_MENU_SETTINGS_WEBSERVER_PORT,doNothing,noEvent)
+  ,OP(LANG_MENU_SETTINGS_WEBSERVER_PWD_ENABLED,doNothing,noEvent)
+  ,OP(LANG_MENU_SETTINGS_WEBSERVER_USERNAME,doNothing,noEvent)
+  ,OP(LANG_MENU_SETTINGS_WEBSERVER_PASSWORD,doNothing,noEvent)
+  ,EXIT(LANG_BACK)
+);
+
+MENU(PairdevicesSettingsMenu,LANG_MENU_SETTINGS_PAIRDEVICES_TITLE,doNothing,anyEvent,wrapStyle
+  ,OP(LANG_MENU_SETTINGS_PAIRDEVICES_PAIRSERVER,doNothing,noEvent)
+  ,OP(LANG_MENU_SETTINGS_PAIRDEVICES_THISDEVICE,doNothing,noEvent)
+  ,OP(LANG_MENU_SETTINGS_PAIRDEVICES_DEVICE1,doNothing,noEvent)
+  ,OP(LANG_MENU_SETTINGS_PAIRDEVICES_DEVICE2,doNothing,noEvent)
+  ,OP(LANG_MENU_SETTINGS_PAIRDEVICES_DEVICE3,doNothing,noEvent)
+  ,EXIT(LANG_BACK)
+);
+
+MENU(TorchSettingsMenu,LANG_MENU_SETTINGS_TORCH_TITLE,doNothing,anyEvent,wrapStyle
+  ,OP(LANG_MENU_SETTINGS_TORCH_CONTINOUSLIGHTBRIGHTNESS,doNothing,noEvent)
+  ,EXIT(LANG_BACK)
+);
+
+MENU(SettingsMenu,LANG_MENU_SETTINGS_TITLE,doNothing,anyEvent,wrapStyle
+   //,FIELD(RGBledRed,"Red        : ","",0,255,10,5,doNothing,noEvent,wrapStyle)
+   //,BARFIELD(RGBledRed,LANG_RGB_RED,"",0,255,10,1,RGBPresetMenuReset,enterEvent,wrapStyle)//numeric field with a bar
+   //,FIELD(RGBledGreen,"Green      : ","",0,255,10,5,doNothing,noEvent,wrapStyle)
+  //,BARFIELD(RGBledGreen,LANG_RGB_GREEN,"",0,255,10,1,RGBPresetMenuReset,enterEvent,wrapStyle)//numeric field with a bar
+  //,FIELD(RGBledBlue,"Blue       : ","",0,255,10,5,doNothing,noEvent,wrapStyle)
+  //,BARFIELD(RGBledBlue,LANG_RGB_BLUE,"",0,255,10,1,RGBPresetMenuReset,enterEvent,wrapStyle)//numeric field with a bar
+  //,SUBMENU(RGBPresetMenu)
+  ,SUBMENU(WiFiSettingsMenu)
+  ,SUBMENU(WebserverSettingsMenu)
+  ,SUBMENU(PairdevicesSettingsMenu)
+  ,OP(LANG_MENU_SETTINGS_DISPLAYBRIGHTNESS,doNothing,noEvent)
+  ,SUBMENU(TorchSettingsMenu)
+  ,OP(LANG_MENU_SETTINGS_MENUTIMEOUT,doNothing,noEvent)
+  ,OP(LANG_MENU_SETTINGS_DEVICEINFO,doNothing,noEvent)
+  ,EXIT(LANG_BACK)
+);
+
 result RGBPresetShow(eventMask event, navNode& nav, prompt &item) {
   Serial.print("selected index: ");
   Serial.println(nav.sel);
@@ -221,6 +269,7 @@ MENU(RGBledMenu,LANG_RGB_MENU_TITLE,doNothing,anyEvent,wrapStyle
 int test=55;
 
 int ledCtrl=HIGH;
+int torchCtrl=LOW;
 
 result myLedOn() {
   ledCtrl=HIGH;
@@ -267,25 +316,42 @@ MENU(subMenu,"Sub-Menu",doNothing,noEvent,noStyle
   ,EXIT(LANG_BACK)
 );
 
+result torchProxy(eventMask event, navNode& nav, prompt &item) {
+  Serial.print("selected index: ");
+  Serial.println(nav.sel);
+  Serial.print("selected value: ");
+  Serial.println(((menuValue<int>*)&item)->target());
+  //int RGBPresetChoice = ((menuValue<int>*)&item)->target();
+  toggleTorch();
+  return proceed;
+}
+
+TOGGLE(torchCtrl,torchMenuCtrl,LANG_MENU_MAIN_TORCH,doNothing,noEvent,noStyle//,doExit,enterEvent,noStyle
+  ,VALUE(LANG_ON,HIGH,torchProxy,focusEvent)
+  ,VALUE(LANG_OFF,LOW,torchProxy,focusEvent)
+);
+
 char* constMEM hexDigit MEMMODE="0123456789ABCDEF";
 char* constMEM hexNr[] MEMMODE={"0","x",hexDigit,hexDigit};
 char buf1[]="0x11";
 
 MENU(mainMenu,LANG_MAIN_MENU_TITLE,doNothing,noEvent,wrapStyle
-  ,OP("Op1",doNothing,noEvent)
-  ,OP("Op2",doNothing,noEvent)
+  //,OP("Op1",doNothing,noEvent)
+  //,OP("Op2",doNothing,noEvent)
   // ,FIELD(test,"Test","%",0,100,10,1,doNothing,noEvent,wrapStyle)
-  ,SUBMENU(subMenu)
-  ,SUBMENU(RGBledMenu)
-  ,BARFIELD(torch,LANG_TORCH,"",0,255,10,1,RGBPresetMenuReset,enterEvent,wrapStyle)//numeric field with a bar
-  ,BARFIELD(TFTled,LANG_BACKLIGHT,"",0,255,10,1,RGBPresetMenuReset,enterEvent,wrapStyle)//numeric field with a bar
-  ,SUBMENU(setLed)
-  ,OP("Demo led On",myLedOn,enterEvent)
-  ,OP("Demo led Off",myLedOff,enterEvent)
-  ,SUBMENU(selMenu)
-  ,SUBMENU(chooseMenu)
+  //,SUBMENU(subMenu)
+  //,SUBMENU(RGBledMenu)
+  //,BARFIELD(torch,LANG_TORCH,"",0,255,10,1,RGBPresetMenuReset,enterEvent,wrapStyle)//numeric field with a bar
+  //,BARFIELD(TFTled,LANG_BACKLIGHT,"",0,255,10,1,RGBPresetMenuReset,enterEvent,wrapStyle)//numeric field with a bar
+  //,SUBMENU(setLed)
+  //,OP("Demo led On",myLedOn,enterEvent)
+  //,OP("Demo led Off",myLedOff,enterEvent)
+  //,SUBMENU(selMenu)
+  //,SUBMENU(chooseMenu)
   //,OP("Alert test",doAlert,enterEvent)
-  ,EDIT("Hex",buf1,hexNr,doNothing,noEvent,noStyle)
+  //,EDIT("Hex",buf1,hexNr,doNothing,noEvent,noStyle)
+  ,SUBMENU(SettingsMenu)
+  ,SUBMENU(torchMenuCtrl)
   ,EXIT(LANG_BACK)
 );
 
@@ -484,7 +550,8 @@ void toggleTorch(){
   if(torch>0 && torch<255){ // Torch was dimmed, set to full on
     //Serial.println("torch>0 && torch<255");
     oldTorch = torch;
-    torch = 255;    
+    torch = 255;
+    torchCtrl=HIGH; 
   }
   else if(torch==255){ // Torch was full on
     //Serial.println("torch>0 && torch<255");
@@ -492,17 +559,20 @@ void toggleTorch(){
       //Serial.println("oldTorch>0 && oldTorch<255");
       torch=oldTorch;
       oldTorch=0;
+      torchCtrl=LOW;
     }
     else if(oldTorch==0){ // Before full on torch was full off, restore full off
       //Serial.println("oldTorch==0");
       torch=0;
       oldTorch=0;
+      torchCtrl=LOW;
     } 
   }
   else if(torch==0){ // Torch was full off, set to full on
     //Serial.println("torch==0");
     torch = 255;
     oldTorch = 0;
+    torchCtrl=HIGH;
   }
 }
 
@@ -754,7 +824,7 @@ void setup() {
 
   delay(250);
   nav.idleTask=idle;//point a function to be used when menu is suspended
-  mainMenu[1].disable();
+  //mainMenu[1].disable();
   nav.idleOn(idle); // Directly enable idle screen with wheater cards
 }
 

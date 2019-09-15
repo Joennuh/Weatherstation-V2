@@ -51,8 +51,11 @@ Hoofdmenu
 |	|	 	|- Bevestig reset
 |	|
 |	|- 	Scherm helderh.: 80
-|	|- 	Zaklamp helderh.: 255
+|	|- 	Zaklamp
+|	|	|- Continu helderh.: 10
+|	|
 |	|-	Menu timeout sec: 60
 |	|-	Apparaat info (commercial device description, manufacturer, version, IP-adres, etc.)
 |
 |-	Zaklamp: uit / aan (default: uit)
+|-	< TERUG (BACK / EXIT)

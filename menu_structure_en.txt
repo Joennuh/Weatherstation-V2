@@ -9,7 +9,7 @@ Main menu
 |	|-	Webserver
 |	|	|-	Port
 |	|	|-	Pwd enabled: yes /no (default: yes)
-|	|	|-	Username (default: admin)
+|	|	|-	Username: (default: admin)
 |	|	|-	Password: (default: admin)
 |	|
 |	|-	Pair devices
@@ -51,8 +51,11 @@ Main menu
 |	|	 	|- Confirm reset
 |	|
 |	|- 	Displ. brightn.: 80
-|	|- 	Torch brightn.: 255
+|	|- 	Torch
+|	|	|- Continous brightn.: 10
+|	|
 |	|-	Menu timeout sec: 60
 |	|-	Device info (commercial device description, manufacturer, version, IP-adres, etc.)
 |
 |-	Torch: off / on (default: off)
+|-	< BACK (BACK / EXIT)
