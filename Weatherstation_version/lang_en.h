@@ -34,7 +34,7 @@
 
 #define LANG_MENU_MAIN_TORCH "Torch: "
 
-#define LANG_MENU_SETTINGS_DISPLAYBRIGHTNESS "Displ. brightn.: ";
+#define LANG_MENU_SETTINGS_DISPLAYBRIGHTNESS "Displ. brightn.:";
 #define LANG_MENU_SETTINGS_MENUTIMEOUT "Menu timeout sec: ";
 #define LANG_MENU_SETTINGS_DEVICEINFO "Device info"
 

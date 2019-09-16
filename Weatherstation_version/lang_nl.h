@@ -34,7 +34,7 @@
 
 #define LANG_MENU_MAIN_TORCH "Zaklamp "
 
-#define LANG_MENU_SETTINGS_DISPLAYBRIGHTNESS "Scherm helderh.: ";
+#define LANG_MENU_SETTINGS_DISPLAYBRIGHTNESS "Scherm helderh.:";
 #define LANG_MENU_SETTINGS_MENUTIMEOUT "Menu timeout sec: ";
 #define LANG_MENU_SETTINGS_DEVICEINFO "Apparaat info"
 

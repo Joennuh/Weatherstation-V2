@@ -101,7 +101,7 @@ Button2 btnDwn(BTN_DWN);
 #define LED_TR1 33 // Torch light
 #define LED_TR2 32
 #define LED_TR3 12
-#define LED_TFT 4
+#define LED_TFT 4 // TFT Display backlight
 
 // Define default values for led brightness
 int RGBledRed = 0;
@@ -169,7 +169,7 @@ MENU(SettingsMenu,LANG_MENU_SETTINGS_TITLE,doNothing,anyEvent,wrapStyle
   ,SUBMENU(WiFiSettingsMenu)
   ,SUBMENU(WebserverSettingsMenu)
   ,SUBMENU(PairdevicesSettingsMenu)
-  ,OP(LANG_MENU_SETTINGS_DISPLAYBRIGHTNESS,doNothing,noEvent)
+  ,BARFIELD(TFTled,LANG_MENU_SETTINGS_DISPLAYBRIGHTNESS,"",0,255,10,1,doNothing,noEvent,wrapStyle)//numeric field with a bar
   ,SUBMENU(TorchSettingsMenu)
   ,OP(LANG_MENU_SETTINGS_MENUTIMEOUT,doNothing,noEvent)
   ,OP(LANG_MENU_SETTINGS_DEVICEINFO,doNothing,noEvent)
@@ -702,8 +702,10 @@ void setup() {
 
   Serial.print("Printing software version... ");
   gfx.setCursor(235,50);
-  
+
+  Serial.print("Loading font... ");
   gfx.loadFont(AA_FONT_SMALL);
+  Serial.println("DONE");
   
   gfx.setTextColor(Black,White);
   
