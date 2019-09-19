@@ -1,6 +1,8 @@
 # Weatherstation V2
 **Open-source Weatherstation to build by yourself. Expandable with remote sensors.**
 
+![ESP8266](https://img.shields.io/badge/ESP-8266-000000.svg?longCache=true&style=flat&colorA=CC101F)
+![ESP32](https://img.shields.io/badge/ESP-32-000000.svg?longCache=true&style=flat&colorA=CC101F)
 [![GitHub license](https://img.shields.io/github/license/Joennuh/Weatherstation-V2)](https://github.com/Joennuh/Weatherstation-V2/blob/master/LICENSE)
 ![GitHub repo size](https://img.shields.io/github/repo-size/Joennuh/Weatherstation-V2)
 ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/Joennuh/Weatherstation-V2/master)
