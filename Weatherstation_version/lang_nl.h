@@ -1,3 +1,15 @@
+#define LANG_INIT_SERIAL "Seriele communicatie initialiseren..."
+#define LANG_INIT_SPIFFS "SPIFFS initialiseren..."
+#define LANG_INIT_FONTS "Lettertypen controleren..."
+#define LANG_INIT_SWVERSION "Software versie..."
+#define LANG_INIT_BUTTONS "Knoppen initialiseren..."
+#define LANG_INIT_LED_RED "Rode led initialiseren en testen..."
+#define LANG_INIT_LED_GREEN "Groene led initaliseren en testen..."
+#define LANG_INIT_LED_BLUE "Blauwe led initialiseren en testen..."
+#define LANG_INIT_LED_TORCH "Zaklamp leds initialiseren en testen..."
+#define LANG_INIT_ARDUINOMENUOPTIONS "Een paar opties instellen..."
+#define LANG_INIT_READY "GEREED"
+
 #define LANG_RGB_PRESET_MENU_TITLE "Voorkeuze  : "
 
 #define LANG_NONE "Geen"

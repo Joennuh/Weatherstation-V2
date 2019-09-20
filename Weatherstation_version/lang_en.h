@@ -1,3 +1,15 @@
+#define LANG_INIT_SERIAL "Initializing serial communication..."
+#define LANG_INIT_SPIFFS "Initializing SPIFFS..."
+#define LANG_INIT_FONTS "Checking fonts..."
+#define LANG_INIT_SWVERSION "Software version..."
+#define LANG_INIT_BUTTONS "Initializing buttons..."
+#define LANG_INIT_LED_RED "Initialize and test red led..."
+#define LANG_INIT_LED_GREEN "Initialize and test green led..."
+#define LANG_INIT_LED_BLUE "Initialize and test blue led..."
+#define LANG_INIT_LED_TORCH "Initialize and test torch leds..."
+#define LANG_INIT_ARDUINOMENUOPTIONS "Set up some options..."
+#define LANG_INIT_READY "READY"
+
 #define LANG_RGB_PRESET_MENU_TITLE "Preset     : "
 
 #define LANG_NONE "None"

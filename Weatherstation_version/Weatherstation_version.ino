@@ -698,7 +698,7 @@ void setup() {
   //Serial.println("DONE");
 
   gfx.drawXBitmap(219, 112, iconSerial, 16, 18, Black, White);
-  drawProgressBar(0,"Initializing serial communication...");
+  drawProgressBar(0,LANG_INIT_SERIAL);
   
   Serial.begin(115200);
   while(!Serial);
@@ -714,7 +714,7 @@ void setup() {
   delay(2000);
 
   gfx.drawXBitmap(219, 112, iconDisk, 16, 18, Black, White);
-  drawProgressBar(5,"Initializing SPIFFS...");
+  drawProgressBar(5,LANG_INIT_SPIFFS);
 
   Serial.println("SPIFFS initialisation...");
   if (!SPIFFS.begin()) {
@@ -727,7 +727,7 @@ void setup() {
   listFiles(); // Lists the files so you can see what is in the SPIFFS
 
   delay(1000);
-  drawProgressBar(12,"Loading fonts...");
+  drawProgressBar(12,LANG_INIT_FONTS);
   Serial.println("Checking font availability...");
   // ESP32 will crash if any of the fonts are missing
   bool font_missing = false;
@@ -747,13 +747,11 @@ void setup() {
 
   delay(1000);
 
-  drawProgressBar(24,"Software version...");
+  drawProgressBar(24,LANG_INIT_SWVERSION);
   Serial.print("Printing software version... ");
   gfx.setCursor(235,50);
 
-  Serial.print("Loading font... ");
   gfx.loadFont(AA_FONT_SMALL);
-  Serial.println("DONE");
   
   gfx.setTextColor(Black,White);
   
@@ -770,7 +768,7 @@ void setup() {
 
   delay(500);
 
-  drawProgressBar(36,"Initializing buttons...");
+  drawProgressBar(36,LANG_INIT_BUTTONS);
   Serial.print("Initialize buttons... ");
   gfx.drawXBitmap(219, 112, iconButton, 16, 18, Black, White);
   button_init();
@@ -780,13 +778,13 @@ void setup() {
   gfx.drawXBitmap(219, 112, iconLedOutline, 16, 18, Black, White);
 
   // -- Red
-  drawProgressBar(48,"Initialize and test red led...");
+  drawProgressBar(48,LANG_INIT_LED_RED);
   Serial.print("Configuring PWM for red led... ");
   ledcSetup(pwmLedChannelRed, pwmFreq, pwmResolution);
   ledcAttachPin(LED_RED, pwmLedChannelRed);
   Serial.println("DONE");
 
-  drawProgressBar(50,"Initialize and test red led...");
+  drawProgressBar(50,LANG_INIT_LED_RED);
   Serial.print("Testing PWM for red led on intensity 100... ");
   gfx.drawXBitmap(219, 112, iconLedFill, 16, 18, Red);
   ledcWrite(pwmLedChannelRed, 100);
@@ -794,7 +792,7 @@ void setup() {
 
   delay(1000);
 
-  drawProgressBar(52,"Initialize and test red led...");
+  drawProgressBar(52,LANG_INIT_LED_RED);
   Serial.print("Turning red led off... ");
   ledcWrite(pwmLedChannelRed, 0);
   gfx.drawXBitmap(219, 112, iconLedFill, 16, 18, White);
@@ -803,13 +801,13 @@ void setup() {
   delay(500);
 
   // -- Green
-  drawProgressBar(54,"Initialize and test green led...");
+  drawProgressBar(54,LANG_INIT_LED_GREEN);
   Serial.print("Configuring PWM for green led... ");
   ledcSetup(pwmLedChannelGreen, pwmFreq, pwmResolution);
   ledcAttachPin(LED_GRN, pwmLedChannelGreen);
   Serial.println("DONE");
 
-  drawProgressBar(56,"Initialize and test green led...");
+  drawProgressBar(56,LANG_INIT_LED_GREEN);
   Serial.print("Testing PWM for green led on intensity 100... ");
   gfx.drawXBitmap(219, 112, iconLedFill, 16, 18, Green);
   ledcWrite(pwmLedChannelGreen, 100);
@@ -817,7 +815,7 @@ void setup() {
 
   delay(1000);
 
-  drawProgressBar(58,"Initialize and test green led...");
+  drawProgressBar(58,LANG_INIT_LED_GREEN);
   Serial.print("Turning green led off... ");
   gfx.drawXBitmap(219, 112, iconLedFill, 16, 18, White);
   ledcWrite(pwmLedChannelGreen, 0);
@@ -826,13 +824,13 @@ void setup() {
   delay(500);
 
   // -- Blue
-  drawProgressBar(60,"Initialize and test blue led...");
+  drawProgressBar(60,LANG_INIT_LED_BLUE);
   Serial.print("Configuring PWM for blue led... ");
   ledcSetup(pwmLedChannelBlue, pwmFreq, pwmResolution);
   ledcAttachPin(LED_BLU, pwmLedChannelBlue);
   Serial.println("DONE");
 
-  drawProgressBar(62,"Initialize and test blue led...");
+  drawProgressBar(62,LANG_INIT_LED_BLUE);
   Serial.print("Testing PWM for blue led on intensity 100... ");
   gfx.drawXBitmap(219, 112, iconLedFill, 16, 18, Blue);
   ledcWrite(pwmLedChannelBlue, 100);
@@ -840,7 +838,7 @@ void setup() {
 
   delay(1000);
 
-  drawProgressBar(64,"Initialize and test blue led...");
+  drawProgressBar(64,LANG_INIT_LED_BLUE);
   Serial.print("Turning blue led off... ");
   gfx.drawXBitmap(219, 112, iconLedFill, 16, 18, White);
   ledcWrite(pwmLedChannelBlue, 0);
@@ -849,7 +847,7 @@ void setup() {
   delay(500);
 
   // -- Torch
-  drawProgressBar(66,"Initialize and test torch leds...");
+  drawProgressBar(66,LANG_INIT_LED_TORCH);
   Serial.print("Configuring PWM for torch leds... ");
   ledcSetup(pwmLedChannelTorch, pwmFreq, pwmResolution);
   ledcAttachPin(LED_TR1, pwmLedChannelTorch);
@@ -857,7 +855,7 @@ void setup() {
   ledcAttachPin(LED_TR3, pwmLedChannelTorch);
   Serial.println("DONE");
 
-  drawProgressBar(68,"Initialize and test torch leds...");
+  drawProgressBar(68,LANG_INIT_LED_TORCH);
   Serial.print("Testing PWM for torch leds on intensity 100... ");
   gfx.drawXBitmap(219, 112, iconLedFill, 16, 18, Yellow);
   ledcWrite(pwmLedChannelTorch, 100);
@@ -865,7 +863,7 @@ void setup() {
 
   delay(1000);
 
-  drawProgressBar(70,"Initialize and test torch leds...");
+  drawProgressBar(70,LANG_INIT_LED_TORCH);
   Serial.print("Turning torch leds off... ");
   gfx.drawXBitmap(219, 112, iconLedFill, 16, 18, White);
   ledcWrite(pwmLedChannelTorch, 0);
@@ -873,12 +871,12 @@ void setup() {
 
   delay(500);
 
-  drawProgressBar(88,"Set up some options...");
+  drawProgressBar(88,LANG_INIT_ARDUINOMENUOPTIONS);
   
   //setting some plugins otions
   barFieldOptions::fill="*";
 
-  drawProgressBar(100,"READY");
+  drawProgressBar(100,LANG_INIT_READY);
   
   delay(1000);
   
